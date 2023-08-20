@@ -33,7 +33,7 @@ document.addEventListener('keydown', function (e) {
 //
 //
 //
-
+/* 
 // Selecting elements
 console.log(document.documentElement);
 console.log(document.head);
@@ -112,10 +112,43 @@ console.log(link.getAttribute('href'));
 console.log(logo.dataset.versionNumber);
 
 // Classes
-logo.classList.add('c, "j');
+logo.classList.add('c', 'j');
 logo.classList.remove('c', 'j');
 logo.classList.toggle('c');
 // logo.classList.contains('c'); not includes (like in arrays)
 
 // Don't use, will override all existing classes already there, only one class on any element
 logo.className = 'Jonas';
+ */
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1Coords = section1.getBoundingClientRect();
+  console.log(s1Coords);
+
+  console.log(e.target.getBoundingClientRect());
+
+  console.log('Current scroll (X/Y)', window.pageXOffset, pageYOffset);
+
+  console.log(
+    'height/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+
+  // Scrolling
+  // window.scrollTo(
+  //   s1Coords.left + window.pageXOffset,
+  //   s1Coords.top + window.pageYOffset
+  // );
+
+  // window.scrollTo({
+  //   left: s1Coords.left + window.pageXOffset,
+  //   top: s1Coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
